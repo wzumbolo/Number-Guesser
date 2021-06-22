@@ -10,6 +10,9 @@ list_y = []
 digits = datasets.load_digits()
 
 clf = svm.SVC(gamma=0.001, C=100)
+
+count = 0
+
 while True:
     guesses = 0
     correct = 0
@@ -31,3 +34,10 @@ while True:
         correct = correct + 1
     list_x.append(guesses)
     list_y.append(t)
+    count += 1
+    if count == 5:
+        break
+
+plt.plot(list_x, list_y)
+plt.show()
+
